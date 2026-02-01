@@ -3,6 +3,11 @@ import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Alert from '../components/Alert'
 import Particles from '../components/Particles'
+import { useEffect } from 'react'
+useEffect(() => {
+  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+}, []);
+
 function Contact() {
     const [formData,setFormData] = useState({
         name:"",
@@ -27,6 +32,9 @@ function Contact() {
         const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        console.log("SERVICE:", serviceID);
+        console.log("TEMPLATE:", templateID);
+        console.log("PUBLIC:", publicKey);
         try {
             console.log(formData)
             await emailjs.send(serviceID,templateID,{
@@ -104,7 +112,7 @@ function Contact() {
                 </div>
                 <div className='mb-5'>
                     <label htmlFor="message" className='field-label'>
-                        Full Name
+                        Enter your message
                     </label>
                     <textarea
                     id='message' 
