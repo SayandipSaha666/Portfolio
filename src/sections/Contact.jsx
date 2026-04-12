@@ -1,14 +1,12 @@
 import { section } from 'framer-motion/client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import Alert from '../components/Alert'
 import Particles from '../components/Particles'
-import { useEffect } from 'react'
-useEffect(() => {
-  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-}, []);
-
 function Contact() {
+    useEffect(() => {
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    }, []);
     const [formData,setFormData] = useState({
         name:"",
         email:"",
@@ -29,36 +27,35 @@ function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
+
         const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-        console.log("SERVICE:", serviceID);
-        console.log("TEMPLATE:", templateID);
-        console.log("PUBLIC:", publicKey);
+
         try {
-            console.log(formData)
-            await emailjs.send(serviceID,templateID,{
+            const templateParams = {
                 from_name: formData.name,
                 to_name: "Sayandip Saha",
                 from_email: formData.email,
                 to_email: "sahasayandip480@gmail.com",
                 message: formData.message
-            },publicKey)
-            setLoading(false)
+            };
+
+            await emailjs.send(serviceID, templateID, templateParams, publicKey);
+            
+            setLoading(false);
             setFormData({
-                name:"",
-                email:"",
+                name: "",
+                email: "",
                 message: ""
-            })
-            getMessage("success","Message sent successfully")
-            console.log("Message sent successfully")
+            });
+            
+            getMessage("success", "Message sent successfully");
         } catch (error) {
-            setLoading(false)
-            console.log(error)
-            getMessage("danger","Something went wrong")
-            console.log("Something went wrong")
+            setLoading(false);
+            console.error("EmailJS Error:", error);
+            getMessage("danger", "Something went wrong. Please try again later.");
         }
-        
     }
     const handleChange = (e) => {
         setFormData({...formData,[e.target.name]: e.target.value});

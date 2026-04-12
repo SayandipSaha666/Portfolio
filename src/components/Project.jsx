@@ -6,6 +6,7 @@ const Project = ({
   description,
   subDescription,
   href,
+  link,
   image,
   tags,
   setPreview,
@@ -43,6 +44,7 @@ const Project = ({
           image={image}
           tags={tags}
           href={href}
+          link={link}
           closeModal={() => setIsHidden(false)}
         />
       )}

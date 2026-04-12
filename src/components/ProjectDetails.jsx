@@ -6,6 +6,7 @@ const ProjectDetails = ({
   image,
   tags,
   href,
+  link,
   closeModal,
 }) => {
   return (
@@ -39,9 +40,15 @@ const ProjectDetails = ({
                 />
               ))}
             </div>
+            {link && (
+              <a className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation" href={link} target="_blank">
+                View Live Demo{""}
+                <img src="assets/arrow-up.svg" className="size-4" />
+              </a>
+            )}
             <a className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation" href={href} target="_blank">
               View Project{""}
-              <img src="assets/arrow-up.svg" className="size-4" href={href} />
+              <img src="assets/arrow-up.svg" className="size-4" />
             </a>
           </div>
         </div>

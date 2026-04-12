@@ -1,6 +1,47 @@
 export const myProjects = [
   {
     id: 1,
+    title: "TaskFlow",
+    description:
+    "Facilitates medical QA system (MedGPT) using a RAG pipeline",
+    subDescription: [
+      "Implemented microservices-based Task Management application with API Gateway, event-driven notifications via RabbitMQ, database-per-service pattern with MongoDB, and Docker Compose orchestration.",
+      "Includes features like User Authentication, Task Management, Scrum Board, Task Priorities, Notifications, API Gateway, Event-driver Architecture, Database per service."
+    ],
+    href: "https://github.com/SayandipSaha666/Task-Management-Application",
+    link: "https://taskflow-five-theta.vercel.app/",
+    logo: "/assets/Taskflow-favicon.webp",
+    image: "/assets/projects/TaskFlow.png",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "Node.js",
+        path: "/assets/logos/nodejs-icon.webp",
+      },
+      {
+        id: 3,
+        name: "Express.js",
+        path: "/assets/logos/express-dark.webp",
+      },
+      {
+        id: 4,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 5,
+        name: "MongoDB",
+        path: "/assets/logos/mongodb.svg",
+      }
+    ]
+  },
+  {
+    id: 2,
     title: "MedGPT",
     description:
     "Facilitates medical QA system (MedGPT) using a RAG pipeline",
@@ -9,13 +50,14 @@ export const myProjects = [
       "developed an end-to-end medical assistant capable of generating accurate causes, symptoms, remedies"
     ],
     href: "https://github.com/SayandipSaha666/Medical-Chatbot",
-    logo: "",
+    link: "https://medical-chatbot-kappa-green.vercel.app/",
+    logo: "/assets/medgpt.png",
     image: "/assets/projects/MedGPT.png",
     tags: [
       {
         id: 1,
-        name: "Flask",
-        path: "/assets/logos/flask.svg",
+        name: "FastAPI",
+        path: "/assets/logos/fastapi.svg",
       },
       {
         id: 2,
@@ -45,7 +87,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "AgriTech Web Solutions",
     description:
       "Built Deployed a Flask Web App integrating ML models for crop disease detection, crop recommendation, and fertilizer suggestion on Render.",
@@ -78,44 +120,7 @@ export const myProjects = [
         path: "/assets/logos/tensorflow.svg",
       },
     ],
-  },
-  {
-    id: 3,
-    title: "Askify.ai",
-    description:
-      "",
-    subDescription: [
-      "Developed an intelligent RAG-based LLM powered study assistant leveraging OpenAI GPT-OSS 20B as the LLM to generate context-aware answers from PDFs.",
-      "Implemented semantic search using HuggingFace Sentence Transformers to create query embeddings and integrated FAISS as a high-performance vector database.",
-      "Designed an end-to-end pipeline that generates relevant questions from documents and retrieves accurate answers using generative AI.",
-    ],
-    href: "https://github.com/SayandipSaha666/Askify.ai",
-    logo: "",
-    image: "/assets/projects/blazor-app.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "HTML",
-        path: "/assets/logos/html5.svg",
-      },
-      {
-        id: 2,
-        name: "CSS",
-        path: "/assets/logos/css3.svg",
-      },
-      {
-        id: 3,
-        name: "Langchain",
-        path: "/assets/logos/langchain.svg",
-      },
-      {
-        id: 4,
-        name: "FastAPI",
-        path: "/assets/logos/fastapi.svg",
-      },
-    ],
-  },
-  
+  }
 ];
 
 export const mySocials = [
